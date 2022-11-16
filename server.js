@@ -12,13 +12,17 @@ app.use(methodOverride("_method"))
 
 // INDEX
 app.get('/pokemon', (req, res) => {
-    res.render('index.ejs', { data: pokemon });
-    });
-    
+    res.render('index.ejs', { data: pokemon })
+    })
+
+// NEW ROUTE - GET
+app.get('/pokemon/new', (req, res) => {
+    res.render("new.ejs")
+})
     
 // SHOW
     app.get('/pokemon/:id', (req, res) => {
-    res.render('show.ejs', { pokemon: pokemon[req.params.id] });
+    res.render('show.ejs', { pokemon: pokemon[req.params.id] })
     });
 
 

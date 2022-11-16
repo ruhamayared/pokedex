@@ -9,17 +9,17 @@
     <title>Pokedex</title>
 </head>
 <body>
-    <h1>Pokedex</h1>
-    <nav>
-        <a href="/pokemon/new"><button>Create a New Pokemon</button></a>
-    </nav>
     <div class="container">
-        <% for (let i = 0; i < 20; i += 1) { %>
-            <p><%= data[i].name %> </p>
-            <a href="/pokemon/<%=i%>">
-            <img src="<%= data[i].img %> " alt="" style="width:80px; height:80px; border:0">
-            </a>
-        <% } %> 
+        <h1>Add a New Pokemon</h1>
+        <form action="/budget" method="POST">
+            <input type="text" name="name" placeholder="Name"><br>
+            <input type="text" name="img" placeholder="Image URL"><br>
+            <input type="text" name="type[]" placeholder="Type" /><br>
+
+            <input type="submit" value="Create Pokemon">
+        </form>
+        
+        <a href="/pokemon"><button>Return to Pokedex</button></a>
     </div>
 </body>
 </html>
