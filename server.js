@@ -19,6 +19,13 @@ app.get('/pokemon', (req, res) => {
 app.get('/pokemon/new', (req, res) => {
     res.render("new.ejs")
 })
+
+// Create Route - POST
+app.post('/pokemon', (req, res) => {
+    // pokemon.push(req.body)
+    console.log(req.body)
+    res.redirect("/pokemon")
+})
     
 // SHOW
     app.get('/pokemon/:id', (req, res) => {
