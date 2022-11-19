@@ -11,18 +11,20 @@
 <body>
     <div class="container">
        <h2><%= pokemon.name %> </h2>
-            <img src="<%= pokemon.img %>" alt="">
+            <img src="<%= pokemon.img %>" alt="" style="width:400px; height:100%; border:0">
             
             <h5>Type:</h5>
             <% for (let i = 0; i < pokemon.type.length; i += 1) { %>
             <li><%= pokemon.type[i] %></li>
             <% } %>
-            <h5>Stats:</h5>
+           
+            <h5>Basic Stats:</h5>
             <ul>
                 <li>HP: <%= pokemon.stats.hp %></li>
                 <li>Attack: <%= pokemon.stats.attack %></li>
                 <li>Defense: <%= pokemon.stats.defense %></li>
             </ul>
+
             <a href="/pokemon"><button>Return to Pokedex</button></a>
     </div>
 </body>

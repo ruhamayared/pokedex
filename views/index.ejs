@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,18 +9,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
     <title>Pokedex</title>
 </head>
+
 <body>
     <div class="container">
         <h1>Pokedex</h1>
         <nav>
             <a href="/pokemon/new"><button>Create a New Pokemon</button></a>
         </nav>
-        <% for (let i = 0; i < 20; i += 1) { %>
-            <p><%= data[i].name %> </p>
+        <% for (let i=0; i < 20; i +=1) { %>
+            <p>
+                <%= data[i].name %>
+            </p>
             <a href="/pokemon/<%=i%>">
-            <img src="<%= data[i].img %> " alt="" style="width:80px; height:100%; border:0">
+                <img src="<%= data[i].img %> " alt="" style="width:80px; height:100%; border:0">
             </a>
-        <% } %> 
+            <a href="/pokemon/<%=i%>/edit"><button>Edit</button></a>
+            <form action="/pokemon/<%=i%>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete" />
+            </form>
+            <% } %>
     </div>
 </body>
+
 </html>

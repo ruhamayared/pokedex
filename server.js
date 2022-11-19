@@ -10,14 +10,20 @@ const app = express()
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride("_method"))
 
-// INDEX ROUTE - GET
+//INDEX ROUTE - GET - Return all pokemon
 app.get('/pokemon', (req, res) => {
     res.render('index.ejs', { data: pokemon })
     })
 
-// NEW ROUTE - GET - Render a page with a form to create a new pokemon
+//NEW ROUTE - GET - Render a page with a form to create a new pokemon
 app.get('/pokemon/new', (req, res) => {
     res.render("new.ejs")
+})
+
+//DESTROY Route - DELETE - Delete pokemon
+app.delete("/pokemon/:id", (req, res) => {
+    pokemon.splice(req.params.id, 1)
+    res.redirect("/pokemon")
 })
 
 //UPDATE ROUTE - PUT - Receive the data from the EDIT ROUTE form and update a pokemon, then redirect the user back to index
@@ -27,10 +33,10 @@ app.put('/pokemon/:id', (req, res) => {
     res.redirect("/pokemon")
 })
 
-// CREATE ROUTE - POST - Receive the data from the NEW ROUTE form and create a new pokemon, then redirect the user back to index
+//CREATE ROUTE - POST - Receive the data from the NEW ROUTE form and create a new pokemon, then redirect the user back to index
 app.post('/pokemon', (req, res) => {
-    // pokemon.push(req.body)
-    console.log(req.body)
+    pokemon.unshift(req.body)
+    //console.log(req.body)
     res.redirect("/pokemon")
 })
 
@@ -43,7 +49,7 @@ app.get('/pokemon/:id/edit', (req, res) =>{
     })
 })
 
-// SHOW ROUTE - GET - Returns a single pokemon
+//SHOW ROUTE - GET - Returns a single pokemon
     app.get('/pokemon/:id', (req, res) => {
     res.render('show.ejs', { 
         pokemon: pokemon[req.params.id],

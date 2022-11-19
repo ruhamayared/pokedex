@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,22 +9,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
     <title>Pokedex</title>
 </head>
+
 <body>
-    <h2>Update <%= pokemon.name %> </h2>
-   
+    <h2>Update <%= pokemon.name %>
+    </h2>
+
     <div class="container">
-    <img src="<%= pokemon.img %> " alt="" style="width:80px; height:100%; border:0">
-    <form action="/pokemon/<%= index %>?_method=PUT" method="POST">
-        Name: <input type="text" name="name" value="<%= pokemon.name %>"><br>
-        Image URL: <input type="text" name="img" value="<%= pokemon.img %>"><br>
-        Type: <input type="text" name="type" value="<%= pokemon.type[0] %>" /><br>
-        Type: <input type="text" name="type" value="<%= pokemon.type[1] %>" /><br>
-        Health: <input type="text" name="hp" value="<%= pokemon.stats.hp %>" /><br>
-        Attack: <input type="text" name="attack" value="<%= pokemon.stats.attack %>" /><br>
-        Defense: <input type="text" name="defense" value="<%= pokemon.stats.defense %>" /><br>
-        <input type="submit" value="Update Pokemon">
-    </form>
-    <a href="/pokemon"><button>Return to Pokedex</button></a>
+        <img src="<%= pokemon.img %> " alt="" style="width:80px; height:100%; border:0">
+        <form action="/pokemon/<%= index %>?_method=PUT" method="POST">
+            Name: <input type="text" name="name" value="<%= pokemon.name %>"><br>
+            Image URL: <input type="text" name="img" value="<%= pokemon.img %>"><br>
+            Type: <input type="text" name="type" value="<%= pokemon.type[0] %>" /><br>
+            Type: <input type="text" name="type" value="<%= pokemon.type[1] %>" /><br>
+            Health: <input type="text" name="stats[hp]" value="<%= pokemon.stats.hp %>" /><br>
+            Attack: <input type="text" name="stats[attack]" value="<%= pokemon.stats.attack %>"/><br>
+            Defense: <input type="text" name="stats[defense]" value="<%= pokemon.stats.defense %>" /><br>
+            <input type="submit" value="Update Pokemon">
+        </form>
+        <a href="/pokemon"><button>Return to Pokedex</button></a>
     </div>
 </body>
+
 </html>
