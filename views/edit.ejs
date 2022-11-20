@@ -11,10 +11,8 @@
 </head>
 
 <body>
-    <h2>Update <%= pokemon.name %>
-    </h2>
-
     <div class="container">
+        <h2>Update <%= pokemon.name %></h2>
         <img src="<%= pokemon.img %> " alt="" style="width:80px; height:100%; border:0">
         <form action="/pokemon/<%= index %>?_method=PUT" method="POST">
             Name: <input type="text" name="name" value="<%= pokemon.name %>"><br>
@@ -22,12 +20,21 @@
             Type: <input type="text" name="type" value="<%= pokemon.type[0] %>" /><br>
             Type: <input type="text" name="type" value="<%= pokemon.type[1] %>" /><br>
             Health: <input type="text" name="stats[hp]" value="<%= pokemon.stats.hp %>" /><br>
-            Attack: <input type="text" name="stats[attack]" value="<%= pokemon.stats.attack %>"/><br>
+            Attack: <input type="text" name="stats[attack]" value="<%= pokemon.stats.attack %>" /><br>
             Defense: <input type="text" name="stats[defense]" value="<%= pokemon.stats.defense %>" /><br>
             <input type="submit" value="Update Pokemon">
         </form>
         <a href="/pokemon"><button>Return to Pokedex</button></a>
     </div>
+
+    <style type="text/css">
+        body {
+            color: rgb(35, 134, 177);
+            background-color: white;
+            font-family: serif;
+            font-size: 20px;
+        }
+    </style>
 </body>
 
 </html>
