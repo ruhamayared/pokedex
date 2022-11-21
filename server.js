@@ -9,6 +9,7 @@ const app = express()
 //Middleware
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride("_method"))
+app.use("/static", express.static("public"))
 
 //INDEX ROUTE - GET - Return all pokemon
 app.get('/pokemon', (req, res) => {

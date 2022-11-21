@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    color: rgb(35, 134, 177);
+    background-color: rgb(181, 126, 126);
+    font-family: serif;
+    font-size: 20px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    height: 1rem;
+    width: 1rem;
+    padding: 1rem;
+    margin: 1rem auto;
+    background-color: blue;
+}
+
+#edit,
+#delete {
+    color: rgb(35, 134, 177);
+    font-family: serif;
+}
