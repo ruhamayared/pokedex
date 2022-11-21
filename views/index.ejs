@@ -12,30 +12,31 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Pokedex</h1>
-        <nav>
-            <a href="/pokemon/new"><button>Create a New Pokemon</button></a>
-        </nav>
+    <h1>Pokedex</h1>
+    <nav>
+        <a href="/pokemon/new"><button>Create a New Pokemon</button></a>
+    </nav>
 
-        <div class="cards">
-            <% for (let i=0; i < 8; i +=1) { %>
+    <div class="container">
+        <% for (let i=0; i < data.length; i +=1) { %>
+            <div class="cards">
                 <p>
                     <%= data[i].name %>
                 </p>
 
                 <a href="/pokemon/<%=i%>">
-                    <img src="<%= data[i].img %> " alt="" style="width:80px; height:100%; border:0">
-                </a></br>
+                    <img src="<%= data[i].img %> " alt="" style="width:80px; border:0">
+                </a>
+                <div class="buttons">
+                    <a href="/pokemon/<%=i%>/edit"><button id="edit">Edit</button></a>
 
-                <a href="/pokemon/<%=i%>/edit"><button id="edit">Edit</button></a>
+                    <form action="/pokemon/<%=i%>?_method=DELETE" method="POST">
+                        <input id="delete" type="submit" value="Delete" />
+                    </form>
+                </div>
+            </div>
+            <% } %>
 
-                <form action="/pokemon/<%=i%>?_method=DELETE" method="POST">
-                    <input id="delete" type="submit" value="Delete" />
-                </form>
-
-                <% } %>
-        </div>
     </div>
 </body>
 

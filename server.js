@@ -36,7 +36,7 @@ app.put('/pokemon/:id', (req, res) => {
 
 //CREATE ROUTE - POST - Receive the data from the NEW ROUTE form and create a new pokemon, then redirect the user back to index
 app.post('/pokemon', (req, res) => {
-    pokemon.unshift(req.body)
+    pokemon.push(req.body)
     //console.log(req.body)
     res.redirect("/pokemon")
 })
